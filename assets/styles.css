@@ -100,7 +100,7 @@ iframe {
 @media (max-width: 768px) {
   .content-left,
   .content-right {
-    width: 100%;
+    width: 90%;
     padding: 10px;
   }
   .section-give {
@@ -108,5 +108,11 @@ iframe {
   }
   .header {
     padding-top: 50px;
+  }
+  .hero-heading {
+    font-size: 36px;
+  }
+  .hero-subheading {
+    font-size: 24px;
   }
 }
