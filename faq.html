@@ -27,6 +27,45 @@
       rel="shortcut icon"
       type="image/x-icon"
     />
+    <style>
+      .navbar.navbar-default.navbar-fixed-top {
+        z-index: 1;
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 99;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+      }
+
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body cz-shortcut-listen="true" style="">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
@@ -81,6 +120,19 @@
         </div>
       </div>
     </nav>
+    <div id="donorbox-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>We have migrated to using DonorBox</h3>
+        <p>
+          We have automatically migrated your giving account to DonorBox to
+          reduce transaction fees. You can continue to use your old credentials
+          to login to your newly created DonorBox account to modify your
+          donations.
+        </p>
+        <p>Click "Access Now" to view your account details</p>
+      </div>
+    </div>
     <div class="bottom-40"></div>
 
     <div class="container">
@@ -231,5 +283,27 @@
         </div>
       </div>
     </footer>
+    <script src="assets/application-ba775f37e5eb738ccc48e36ec50bd1fd7727b4c92c6b58ea5cd2650426402ab5.js"></script>
+    <script>
+      $(document).ready(function () {});
+      // Get the modal
+      var modal = document.getElementById("donorbox-modal");
+      var btn = document.getElementById("login-button");
+      var span = document.getElementsByClassName("close")[0];
+
+      btn.onclick = function () {
+        modal.style.display = "block";
+      };
+
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+    </script>
   </body>
 </html>
